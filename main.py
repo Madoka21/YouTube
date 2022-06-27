@@ -19,6 +19,7 @@ def start(msg):
 
 @bot.message_handler(content_types=['text'])
 def get_video(msg):
+    bot.send_message(msg.chat.id, "Секунду, обрабатываю ваш запрос. Видео будет доступно в течении пару секунд или минут в зависимости от продолжительности видео")
     link = msg.text
     video = YouTube(link)
     filename = video.streams.filter(res='720p').first().default_filename
