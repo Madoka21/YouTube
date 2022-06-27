@@ -15,7 +15,7 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
 def start(msg):
-    bot.send_message(msg.chat.id, 'Отправьте ссылку на видео youtube')
+    bot.send_message(msg.chat.id, 'Дароу, введи существующую ссылку YouTube')
 
 @bot.message_handler(content_types=['text'])
 def get_video(msg):
@@ -25,7 +25,7 @@ def get_video(msg):
     video.streams.filter(res='720p').first().download()
     file = open(filename, 'rb')
     bot.send_video(msg.chat.id, file)
-    bot.send_message(msg.chat.id, 'Приятного просмотра')
+    bot.send_message(msg.chat.id, 'Держи! Я молодец, а ты никто!')
 
 @server.route('/' + token, methods=['POST'])
 
